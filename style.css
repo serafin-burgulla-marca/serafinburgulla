@@ -342,9 +342,9 @@ ul { list-style: none; }
 }
 .consulting-2 {
   display: grid;
-  margin-top: 65px;
+  margin-top: 30px;
   margin-right: -35px;
-  margin-bottom: -65px;
+  margin-bottom: 0px;
   grid-auto-columns: 1fr;
   gap: 16px;
   grid-template-columns: 1fr 1fr;
