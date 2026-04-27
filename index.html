@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Serafin Burgulla | Portfolio</title>
+  <link rel="canonical" href="https://www.serafinburgulla.dev">
+  <link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69197c95d35369ed59feb537_FAVICON.png">
+  <link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69196116f401d82daa04e387_MAIN%20LOGO.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ══════════════════════════════════════
+       RESET
+       ══════════════════════════════════════ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      color: #333;
+      background-color: #fff;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ══════════════════════════════════════
+       CONTAINER (Webflow w-container)
+       ══════════════════════════════════════ */
+    .w-container {
+      max-width: 940px;
+      margin-right: auto;
+      margin-left: auto;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+
+    /* ══════════════════════════════════════
+       NAVBAR
+       ══════════════════════════════════════ */
+    .navbar-logo-left-container {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      width: 100%;
+      max-width: 100%;
+      margin-right: auto;
+      margin-left: auto;
+      padding: 20px 20px;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    .navbar-logo-left-container .container {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .navbar-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-brand img { width: 60px; }
+    .nav-menu-two {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .nav-menu-two li {
+      display: flex;
+      align-items: center;
+    }
+    .nav-link {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 400;
+      color: #333;
+      transition: color 0.25s ease;
+    }
+    .nav-link:hover { color: #3a73da; }
+    .nav-link-accent {
+      padding: 8px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #3a73da;
+      transition: opacity 0.25s ease;
+    }
+    .nav-link-accent:hover { opacity: 0.7; }
+    .nav-divider {
+      width: 1px; height: 20px;
+      margin: 0 8px;
+      background-color: #ddd;
+    }
+    .nav-bar-button {
+      display: inline-block;
+      padding: 9px 20px;
+      background-color: #3a73da;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: background-color 0.25s ease, transform 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .nav-bar-button:hover {
+      background-color: #2d5cb8;
+      transform: translateY(-1px);
+    }
+    .menu-button {
+      display: none;
+      cursor: pointer;
+      padding: 10px;
+      background: none;
+      border: none;
+    }
+    .menu-button .bar {
+      display: block;
+      width: 22px; height: 2px;
+      background: #333;
+      margin: 5px 0;
+      border-radius: 1px;
+    }
+
+    /* ══════════════════════════════════════
+       SECTIONS (base — matches Webflow)
+       ══════════════════════════════════════ */
+    .section {
+      display: flex;
+      overflow: visible;
+      margin-bottom: 0;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      flex-flow: row-reverse;
+      justify-content: space-between;
+      align-items: flex-start;
+      background-color: #fff;
+    }
+    .section.dark-section {
+      margin-top: 10px;
+      background-color: rgb(58, 115, 218);
+    }
+
+    /* ══════════════════════════════════════
+       TWO-COLUMN GRID
+       ══════════════════════════════════════ */
+    .div-two-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+       ══════════════════════════════════════ */
+    .hero-section { padding-top: 120px; }
+    .hero-section-header {
+      font-family: 'Inter', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: #333;
+    }
+    .subheading-text {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 24px;
+    }
+    .dark-subheading { color: #fff; }
+    .div-two-small {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 16px;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 24px;
+      background-color: #3a73da;
+      color: #fff;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: background-color 0.25s ease, transform 0.25s ease;
+    }
+    .button:hover {
+      background-color: #2d5cb8;
+      transform: translateY(-1px);
+    }
+    .button.button-empty {
+      background-color: transparent;
+      color: #333;
+      border: 1px solid #ccc;
+    }
+    .button.button-empty:hover {
+      border-color: #3a73da;
+      color: #3a73da;
+    }
+    .div-block {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .icons {
+      width: 28px; height: 28px;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .icons:hover { transform: scale(1.1); opacity: 0.8; }
+    .hero-image {
+      width: 400px;
+      border-radius: 12px;
+    }
+
+    /* ══════════════════════════════════════
+       HEADINGS
+       ══════════════════════════════════════ */
+    .heading-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 30px;
+    }
+    .dark-heading { color: #fff; }
+    .subtitle-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 4px;
+    }
+    .dark-subtitle { color: #fff; }
+
+    /* ══════════════════════════════════════
+       PROJECT CARDS
+       ══════════════════════════════════════ */
+    .project-features-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-features-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+    .project-features-card .image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+    .div-section-text {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #888;
+      margin-bottom: 6px;
+    }
+    .paragraph-text {
+      font-size: 14px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .dark-paragraph { color: rgba(255,255,255,0.85); }
+    .project-logos {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+      align-items: center;
+    }
+    .project-tolo-logo {
+      width: 28px; height: 28px;
+      transition: transform 0.2s ease;
+    }
+    .project-tolo-logo:hover { transform: scale(1.15); }
+    .div-for-card-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .div-for-card-buttons .button {
+      font-size: 11px;
+      padding: 7px 14px;
+      cursor: default;
+    }
+
+    /* ══════════════════════════════════════
+       CERTIFICATIONS
+       ══════════════════════════════════════ */
+    .div-block-6 {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .project-cert-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 22px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-cert-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .project-cert-card .image {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+
+    /* ══════════════════════════════════════
+       CONSULTING
+       ══════════════════════════════════════ */
+    .div-block-13 {
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+    .consulting-1 {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 40px;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 28px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .consulting-1:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .div-block-11 { display: flex; align-items: flex-start; }
+    .image-4 {
+      width: 60px; height: 60px;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+    .consulting-2 {
+      display: grid;
+      margin-top: 65px;
+      margin-right: -35px;
+      margin-bottom: -65px;
+      grid-auto-columns: 1fr;
+      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 10px;
+      padding: 28px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .consulting-2:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    .image-3 { width: 100%; border-radius: 10px; }
+
+    /* ══════════════════════════════════════
+       ACADEMICS
+       ══════════════════════════════════════ */
+    .div-block-7 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 24px;
+    }
+    .div-block-7 p {
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    /* ══════════════════════════════════════
+       FOOTER
+       ══════════════════════════════════════ */
+    .footer-subscribe {
+      background-color: #f5f5f5;
+      padding-top: 40px;
+      padding-bottom: 0;
+    }
+    .container-2 {
+      max-width: 940px;
+      margin-right: auto;
+      margin-left: auto;
+      padding-right: 10px;
+      padding-left: 10px;
+    }
+    .footer-wrapper-three { display: flex; flex-direction: column; }
+    .footer-block-three {
+      display: flex; gap: 24px; flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .footer-link-three {
+      font-size: 14px; color: #555;
+      transition: color 0.25s ease;
+    }
+    .footer-link-three:hover { color: #3a73da; }
+    .footer-social-block-three {
+      display: flex; gap: 12px; margin-bottom: 20px;
+    }
+    .footer-social-link-three img {
+      width: 20px; height: 20px;
+      transition: transform 0.25s ease;
+    }
+    .footer-social-link-three:hover img { transform: scale(1.1); }
+    .footer-divider-two {
+      width: 100%; height: 1px;
+      background-color: #ddd;
+      margin-bottom: 20px;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+    }
+    .footer-copyright { font-size: 13px; color: #888; }
+    .footer-legal-link {
+      font-size: 13px; color: #888;
+      transition: color 0.25s ease;
+    }
+    .footer-legal-link:hover { color: #3a73da; }
+
+    /* ══════════════════════════════════════
+       ANIMATIONS
+       ══════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in { animation: fadeUp 0.6s ease forwards; }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE
+       ══════════════════════════════════════ */
+    @media screen and (max-width: 991px) {
+      .nav-menu-wrapper { display: none; }
+      .nav-menu-wrapper.open {
+        display: block;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(255,255,255,0.98);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        padding: 16px 20px;
+      }
+      .nav-menu-wrapper.open .nav-menu-two {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .nav-divider { display: none; }
+      .menu-button { display: block; }
+    }
+    @media screen and (max-width: 767px) {
+      .navbar-logo-left-container { max-width: 100%; }
+      .div-two-section { grid-template-columns: 1fr; gap: 24px; }
+      .hero-image { width: 280px; margin: 0 auto; }
+      .consulting-2 {
+        grid-template-columns: 1fr;
+        margin-right: 0; margin-top: 40px; margin-bottom: 0;
+      }
+      .div-block-7 { grid-template-columns: 1fr; gap: 24px; }
+    }
+    @media screen and (max-width: 479px) {
+      .section { padding-left: 0; flex-flow: column; }
+      .section.dark-section { padding-right: 10px; padding-left: 10px; }
+      .hero-section-header { font-size: 32px; }
+      .div-two-small { flex-direction: column; align-items: flex-start; }
+      .div-block-13 {
+        display: flex; padding-right: 12px; padding-left: 12px;
+        flex-flow: column; justify-content: flex-start;
+        align-items: center; text-align: center;
+      }
+      .consulting-1 { grid-template-columns: 1fr; }
+      .consulting-2 {
+        display: flex; margin-top: 100px;
+        margin-right: 0; margin-bottom: -30px;
+        padding-right: 12px; padding-left: 12px;
+        flex-flow: column; gap: 10px;
+      }
+      .div-block-6 { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+      .footer-block-three { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <div role="banner" class="navbar-logo-left-container shadow-three">
+    <div class="container" style="max-width:1140px;margin:0 auto;">
+      <div class="navbar-wrapper">
+        <a href="/" class="navbar-brand" aria-label="home">
+          <img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69180c14eadf70768c81502d_NAV-BAR-LOGO-p-500.png" loading="lazy" width="60" alt="Logo">
+        </a>
+        <nav class="nav-menu-wrapper" id="navMenu">
+          <ul class="nav-menu-two">
+            <li><a href="#about-me" class="nav-link">About me</a></li>
+            <li><a href="#featured" class="nav-link">Featured Projects</a></li>
+            <li><a href="#consulting" class="nav-link">Consulting</a></li>
+            <li><a href="#courses" class="nav-link">Certifications</a></li>
+            <li><a href="/my-story" class="nav-link">My Story</a></li>
+            <li><div class="nav-divider"></div></li>
+            <li><a href="https://www.linkedin.com/in/fin-burgulla/" target="_blank" rel="noopener" class="nav-link-accent">LinkedIn</a></li>
+            <li><a href="https://drive.google.com/file/d/1UYbgMhF7Dvbh-xdJFGMNio9Q14zuXpLN/view?usp=sharing" target="_blank" rel="noopener" class="nav-bar-button">Resume</a></li>
+          </ul>
+        </nav>
+        <button class="menu-button" onclick="document.getElementById('navMenu').classList.toggle('open')" aria-label="menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ HERO SECTION ═══ -->
+  <section class="section hero-section">
+    <div class="w-container">
+      <div class="div-two-section">
+        <div class="div-text-animation-block animate-in">
+          <h1 class="hero-section-header">Serafin Burgulla</h1>
+          <p class="subheading-text">Creating and shipping work that solves real problems. Using data to measure and create impact on people's lives.</p>
+          <div class="div-two-small">
+            <div><a href="#about-me" class="button">About me</a></div>
+            <div class="div-block">
+              <a href="https://github.com/fin-burgulla" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69180c137ef2d7a7ce7c11c3_LOGO-GITHUB-p-500.png" loading="lazy" alt="GitHub" class="icons"></a>
+              <a href="https://www.linkedin.com/in/fin-burgulla/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69180c16ea9737604270b3b7_LOGO-LINKEDIN-BLACK-p-500.png" loading="lazy" alt="LinkedIn" class="icons"></a>
+              <a href="mailto:serafin.burgulla1789@gmail.com"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69180c1327c43ca58dfce9ae_LOGO-MAIL-p-500.png" loading="lazy" alt="Email" class="icons"></a>
+            </div>
+          </div>
+        </div>
+        <div class="div-block-14 animate-in">
+          <img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/691b028d3216cff5d75b6713_OFFICIAL%20(2)-p-800.png" loading="lazy" width="400" alt="Serafin Burgulla" class="hero-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT ME ═══ -->
+  <section id="about-me" class="section dark-section">
+    <div class="w-container">
+      <div class="div-two-section">
+        <div class="div-text-animation-block">
+          <p class="subheading-text dark-subheading">I'm a sophomore at Georgetown University studying Computer Science and Mathematics.<br><br>I'm driven by my endless curiosity, love for learning, and passion for building. In my free time, I make apps for my friends and family to use.</p>
+        </div>
+        <div>
+          <a href="https://www.georgetown.edu/" target="_blank" rel="noopener">
+            <img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69180c14449a0b63f0971ce7_HERO-SECTION-PICTURE-p-800.png" loading="lazy" width="400" alt="Georgetown University" class="hero-image">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURED PROJECTS ═══ -->
+  <section id="featured" class="section">
+    <div class="w-container">
+      <h1 class="heading-text">Featured Projects</h1>
+      <div class="div-two-section">
+        <div class="project-features-card">
+          <a href="https://www.guasfcu.org/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c4877973571e8154d2d_8.png" loading="lazy" alt="G.U. Federal Credit Union" class="image"></a>
+          <p class="div-section-text">BANKING WEB PLATFORM | PAID PROJECT</p>
+          <h2 class="subtitle-text">G.U. FEDERAL CREDIT UNION</h2>
+          <div class="project-logos">
+            <a href="https://www.javascript.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190d6dc6a2eab55cbf3521_20.png" loading="lazy" alt="JavaScript" class="project-tolo-logo"></a>
+            <img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190d6dc73e9915bef048e8_22.png" loading="lazy" alt="CSS" class="project-tolo-logo">
+            <a href="https://html.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190d6d75b2c875c5236605_21.png" loading="lazy" alt="HTML" class="project-tolo-logo"></a>
+            <a href="https://developers.google.com/analytics" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c44912be2f27040b41a_25.png" loading="lazy" alt="Google Analytics" class="project-tolo-logo"></a>
+            <a href="https://git-scm.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c43c6a2eab55cbf1066_38.png" loading="lazy" alt="Git" class="project-tolo-logo"></a>
+          </div>
+          <p class="paragraph-text">A redesigned institutional website for Georgetown University's student-run credit union, built to improve clarity, navigation, and member experience. Rebuilt with a cleaner layout, improved readability, and enhanced accessibility.</p>
+          <div class="div-for-card-buttons">
+            <a href="#" class="button">Product Management</a>
+            <a href="#" class="button">Analytics</a>
+            <a href="#" class="button">Version Control</a>
+          </div>
+        </div>
+        <div class="project-features-card">
+          <a href="https://fin-burgulla.github.io/loreal-routine-AI-builder/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c4769525a5a125da97a_10.png" loading="lazy" alt="L'Oreal Routine Builder" class="image"></a>
+          <p class="div-section-text">AI-POWERED PRODUCT ADVISOR | PERSONAL PROJECT</p>
+          <h2 class="subtitle-text">L'ORÉAL ROUTINE BUILDER</h2>
+          <div class="project-logos">
+            <a href="https://workers.cloudflare.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c443a47cdf8dd1378ca_27.png" loading="lazy" alt="Cloudflare Workers" class="project-tolo-logo"></a>
+            <a href="https://openai.com/index/openai-api/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c445678e839507273eb_26.png" loading="lazy" alt="OpenAI API" class="project-tolo-logo"></a>
+            <a href="https://getbootstrap.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c44c3ce4d1aa0d2b084_28.png" loading="lazy" alt="Bootstrap" class="project-tolo-logo"></a>
+          </div>
+          <p class="paragraph-text">A lightweight front-end application that generates personalized skincare and haircare routines using real L'Oréal product data. Users can browse products, build custom selections, and create step-by-step routines through an AI-powered assistant. Designed with responsive layouts, accessible controls, and RTL support.</p>
+          <div class="div-for-card-buttons">
+            <a href="#" class="button">API Integrations</a>
+            <a href="#" class="button">Accessibility</a>
+            <a href="#" class="button">Cloudflare Workers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FEATURED PROJECTS II ═══ -->
+  <section class="section">
+    <div class="w-container">
+      <div class="div-two-section">
+        <div class="project-features-card">
+          <a href="https://fin-burgulla.github.io/nasa-picture-generator-web-app/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c475678e8395072740d_11.png" loading="lazy" alt="NASA Space Explorer" class="image"></a>
+          <p class="div-section-text"><strong>WEB-APP | PERSONAL PROJECT</strong></p>
+          <h2 class="subtitle-text">NASA SPACE EXPLORER</h2>
+          <div class="project-logos">
+            <a href="https://www.javascript.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190d6dc6a2eab55cbf3521_20.png" loading="lazy" alt="JavaScript" class="project-tolo-logo"></a>
+            <a href="https://html.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190d6d75b2c875c5236605_21.png" loading="lazy" alt="HTML" class="project-tolo-logo"></a>
+            <a href="https://www.w3schools.com/css/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190d6dc73e9915bef048e8_22.png" loading="lazy" alt="CSS" class="project-tolo-logo"></a>
+            <a href="https://www.figma.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c44a0453b3e2b2516bf_24.png" loading="lazy" alt="Figma" class="project-tolo-logo"></a>
+          </div>
+          <p class="paragraph-text">A mini web application that showcases NASA's Astronomy Picture of the Day by fetching entries across a user-selected date range. Visitors can explore a responsive gallery of APOD images and open detailed modals with full descriptions. Built with clean JavaScript logic and lightweight, mobile-friendly UI patterns.</p>
+          <div class="div-for-card-buttons">
+            <a href="#" class="button">Responsive Design</a>
+            <a href="#" class="button">UI/UX</a>
+          </div>
+        </div>
+        <div class="project-features-card">
+          <a href="https://fin-burgulla.github.io/charity-water-web-app-game/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c47d9bf5419ef943e42_9.png" loading="lazy" alt="Water Drop Rescue" class="image"></a>
+          <p class="div-section-text"><strong>GAME UI DEMO | PERSONAL PROJECT</strong></p>
+          <h2 class="subtitle-text">WATER DROP RESCUE</h2>
+          <div class="project-logos">
+            <a href="https://html.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190d6d75b2c875c5236605_21.png" loading="lazy" alt="HTML" class="project-tolo-logo"></a>
+            <a href="https://www.w3schools.com/css/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190d6dc73e9915bef048e8_22.png" loading="lazy" alt="CSS" class="project-tolo-logo"></a>
+            <a href="https://www.javascript.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190d6dc6a2eab55cbf3521_20.png" loading="lazy" alt="JavaScript" class="project-tolo-logo"></a>
+            <a href="https://react.dev/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c44e68a344d908f2388_23.png" loading="lazy" alt="React" class="project-tolo-logo"></a>
+          </div>
+          <p class="paragraph-text">A compact browser game where players click falling water drops to score points while avoiding polluted ones. Features difficulty modes, milestone banners, smooth transitions, and a Game Over screen with optional celebratory confetti. Built to demonstrate clean UI/UX, animation, and front-end interaction design.</p>
+          <div class="div-for-card-buttons">
+            <a href="#" class="button">DOM Manipulation</a>
+            <a href="#" class="button"><strong>Game Logic</strong></a>
+            <a href="#" class="button"><strong>Animations</strong></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COURSES & CERTIFICATIONS ═══ -->
+  <section id="courses" class="section">
+    <div class="w-container">
+      <h1 class="heading-text">Courses, Research, and Certifications</h1>
+      <div class="div-block-6">
+        <div class="project-cert-card">
+          <a href="https://codeinplace.stanford.edu/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69192684d5a12dae015c2aa2_LOGO.png" loading="lazy" alt="Code in Place" class="image"></a>
+          <h2 class="subtitle-text">CODE IN PLACE</h2>
+          <p class="div-section-text">Stanford University</p>
+          <p class="paragraph-text">An introductory programming course based on Stanford's CS106A curriculum, taught through a global community of volunteer instructors. Covers Python fundamentals through creative projects, weekly sections, and hands-on assignments designed for first-time programmers.</p>
+          <div class="div-for-card-buttons">
+            <a href="#" class="button button-empty">Python</a>
+            <a href="#" class="button button-empty">Problem Solving</a>
+          </div>
+        </div>
+        <div class="project-cert-card">
+          <a href="https://www.coursera.org/learn/project-management-foundations" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c47b8cc57edec10317f_16.png" loading="lazy" alt="Foundations of Project Management" class="image"></a>
+          <h2 class="subtitle-text">FOUNDATIONS OF PROJECT MANAGEMENT</h2>
+          <p class="div-section-text">Google Career Certificates</p>
+          <p class="paragraph-text">A foundational course on project management covering key roles, responsibilities, methodologies, and the project life cycle. Includes hands-on assignments and practical frameworks.</p>
+          <div class="div-for-card-buttons">
+            <a href="#" class="button button-empty">Agile Methodology</a>
+            <a href="#" class="button button-empty">Project Coordination</a>
+          </div>
+        </div>
+        <div class="project-cert-card">
+          <a href="https://www.linkedin.com/company/hoyalytics/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69193acdd74de5638899180a_LOGO.png" loading="lazy" alt="Hoyalytics" class="image"></a>
+          <h2 class="subtitle-text">ANALYST TRAINING PROGRAM</h2>
+          <p class="div-section-text">Hoyalytics</p>
+          <p class="paragraph-text">A hands-on analytics program teaching students how to clean, analyze, and visualize real-world data using Python and Tableau. Features weekly modules, collaborative exercises, and a capstone project focused on descriptive, predictive, and prescriptive analytics.</p>
+          <div class="div-for-card-buttons">
+            <a href="#" class="button button-empty">Data Analysis</a>
+            <a href="#" class="button button-empty">Visualization</a>
+            <a href="#" class="button button-empty">Scraping</a>
+          </div>
+        </div>
+        <div class="project-cert-card">
+          <a href="https://www.hoyadevelopers.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c47cc16396132e45d26_17.png" loading="lazy" alt="Hoya Developers" class="image"></a>
+          <h2 class="subtitle-text">FULL-STACK DEVELOPMENT TRAINING</h2>
+          <p class="div-section-text">Hoya Developers</p>
+          <p class="paragraph-text">A full-stack development training program covering modern web technologies and collaborative development workflows. Includes UX/UI fundamentals, front-end and back-end development, databases, deployment, and version control through real project work.</p>
+          <div class="div-for-card-buttons">
+            <a href="#" class="button button-empty">React</a>
+            <a href="#" class="button button-empty">Version Control</a>
+            <a href="#" class="button button-empty">Figma</a>
+          </div>
+        </div>
+        <div class="project-cert-card">
+          <a href="https://drive.google.com/file/d/1tul-PA5j8n0J5zPjdNVnVVZlUA_7tF36/view?usp=sharing" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69c0f7a3d2026be1a0bdfa21_GEORGETOWN%20(6).png" loading="lazy" alt="Education Policy Capstone" class="image"></a>
+          <h2 class="subtitle-text">EDUCATION POLICY CAPSTONE PROJECT</h2>
+          <p class="div-section-text">Youth In Policy Institute</p>
+          <p class="paragraph-text">A collaborative policy brief analyzing the state of civic education in the U.S., examining ideological perspectives, existing legislation, and declining engagement trends. Proposes two policy options: integrating mandatory civics into public school curricula and expanding programs through community centers and libraries.</p>
+          <div class="div-for-card-buttons">
+            <a href="#" class="button button-empty">Policy Analysis</a>
+            <a href="#" class="button button-empty">Research</a>
+            <a href="#" class="button button-empty">Teamwork</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONSULTING ═══ -->
+  <section id="consulting">
+    <div class="w-container">
+      <div class="div-block-13">
+        <h1 class="heading-text">Consulting and Data</h1>
+        <div class="consulting-1">
+          <div class="div-block-11">
+            <img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/691947f5599b3f5cb6f19633_LOGO%20(2).png" loading="lazy" alt="Hoyalytics" class="image-4">
+          </div>
+          <div>
+            <p class="div-section-text">CAPSTONE PROJECT – DATA ANALYTICS ENGAGEMENT</p>
+            <h1 class="subtitle-text">HOYALYTICS CONSULTING</h1>
+            <p class="paragraph-text">A comprehensive analytics engagement for a regional café chain, analyzing sales trends, customer loyalty, demographic behavior, store performance, and feedback sentiment. Delivered dashboards, machine learning clustering, and targeted operational recommendations to optimize marketing, staffing, and revenue strategy.</p>
+            <div class="project-logos">
+              <a href="https://www.python.org/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c440da08a800542ffea_31.png" loading="lazy" alt="Python" class="project-tolo-logo"></a>
+              <a href="https://colab.research.google.com/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c43ada11f240d8e8f7d_32.png" loading="lazy" alt="Colab" class="project-tolo-logo"></a>
+              <a href="https://pandas.pydata.org/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c43450242d836a95f56_34.png" loading="lazy" alt="Pandas" class="project-tolo-logo"></a>
+              <a href="https://scikit-learn.org/stable/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c43c1ea4184a90b2683_33.png" loading="lazy" alt="Scikit-learn" class="project-tolo-logo"></a>
+              <a href="https://matplotlib.org/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c44dc8769f00b45f3be_35.png" loading="lazy" alt="Matplotlib" class="project-tolo-logo"></a>
+            </div>
+            <div class="div-for-card-buttons">
+              <a href="https://drive.google.com/file/d/1THCw0KfRRP65Ak3KxzssFICdwXBzV8ZW/view?usp=sharing" target="_blank" rel="noopener" class="button"><strong>View Code</strong></a>
+              <a href="https://docs.google.com/presentation/d/1F5kUReRM5TcL6nkcj5eirFyJrd1Ulhy_/edit?usp=sharing&amp;ouid=105787842756392006214&amp;rtpof=true&amp;sd=true" target="_blank" rel="noopener" class="button"><strong>View Insights</strong></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grameen Creative Lab -->
+  <section>
+    <div class="w-container">
+      <div class="consulting-2">
+        <div>
+          <p class="div-section-text">PRO-BONO | <strong>REFUGEE INTEGRATION STRATEGY</strong></p>
+          <h1 class="subtitle-text">THE GRAMEEN CREATIVE LAB</h1>
+          <p class="paragraph-text">A consulting project focused on designing a scalable integration program for refugees across Germany, France, and Luxembourg. Developed a full strategic model including training pathways, economic projections, partnership structures, and a one-year implementation roadmap for corporate ESG stakeholders.</p>
+          <div class="project-logos">
+            <a href="https://gitlab.com/inkscape/inkscape" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c44728014e8c0495fde_30.png" loading="lazy" alt="Inkscape" class="project-tolo-logo"></a>
+            <a href="https://miro.com/app/dashboard/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69194c8124a9b9431e547d80_FINAL%20(2).png" loading="lazy" alt="Miro" class="project-tolo-logo"></a>
+            <a href="https://powerpoint.cloud.microsoft/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69190c44747b5b3611aa08aa_29.png" loading="lazy" alt="PowerPoint" class="project-tolo-logo"></a>
+            <a href="https://excel.cloud.microsoft/" target="_blank" rel="noopener"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69194c840e38b2018a97c7af_FINAL%20(1).png" loading="lazy" alt="Excel" class="project-tolo-logo"></a>
+          </div>
+          <div class="div-for-card-buttons">
+            <a href="https://www.canva.com/design/DAG4rmFYz7Y/6YGu2W7mpNM6oKx8bmybOQ/view?utm_content=DAG4rmFYz7Y&amp;utm_campaign=designshare&amp;utm_medium=link2&amp;utm_source=uniquelinks&amp;utlId=h9c8690915d" target="_blank" rel="noopener" class="button">View Insights</a>
+            <a href="https://miro.com/app/board/uXjVMnKvWdM=/?share_link_id=335123985427" target="_blank" rel="noopener" class="button">View Planning Workflows</a>
+          </div>
+        </div>
+        <div>
+          <img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69194bb102c0e10d43641d57_FINAL.png" loading="lazy" alt="Grameen Creative Lab" class="image-3">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ MY ACADEMIC JOURNEY ═══ -->
+  <section id="academics" class="section dark-section">
+    <div class="w-container">
+      <div class="div-text-animation-block">
+        <h1 class="heading-text dark-heading">My Academic Journey</h1>
+        <div class="div-block-7">
+          <div>
+            <h1 class="subtitle-text dark-subtitle">Computer Science</h1>
+            <p class="paragraph-text dark-paragraph">◉ Computer Science I<br>◉ Computer Science II<br>◉ Mathematical Methods for CS<br>◉ Web Development</p>
+          </div>
+          <div>
+            <h1 class="subtitle-text dark-subtitle">Mathematics</h1>
+            <p class="paragraph-text dark-paragraph">◉ Calculus I<br>◉ Calculus II<br>◉ Combinatorics<br>◉ Statistics &amp; Probability<br>◉ Linear Algebra</p>
+          </div>
+          <div>
+            <h1 class="subtitle-text dark-subtitle">Other Courses</h1>
+            <p class="paragraph-text dark-paragraph">◉ Entrepreneurship<br>◉ Ethics &amp; Society<br>◉ Public Speaking<br>◉ Writing and Culture<br>◉ How Languages are Learned</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <section class="footer-subscribe">
+    <div class="container-2">
+      <div class="footer-wrapper-three">
+        <div class="footer-block-three">
+          <a href="#about-me" class="footer-link-three">About me</a>
+          <a href="#featured" class="footer-link-three">Featured Projects</a>
+          <a href="#consulting" class="footer-link-three">Consulting</a>
+          <a href="#courses" class="footer-link-three">Certifications</a>
+          <a href="https://drive.google.com/file/d/1UYbgMhF7Dvbh-xdJFGMNio9Q14zuXpLN/view?usp=sharing" target="_blank" rel="noopener" class="footer-link-three">Resume</a>
+        </div>
+        <div class="footer-social-block-three">
+          <a href="https://www.linkedin.com/in/fin-burgulla/" target="_blank" rel="noopener" class="footer-social-link-three"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69180c16ea9737604270b3b7_LOGO-LINKEDIN-BLACK-p-500.png" loading="lazy" width="20" alt="LinkedIn"></a>
+          <a href="https://github.com/fin-burgulla" target="_blank" rel="noopener" class="footer-social-link-three"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69180c137ef2d7a7ce7c11c3_LOGO-GITHUB-p-500.png" loading="lazy" width="20" alt="GitHub"></a>
+          <a href="mailto:serafin.burgulla1789@gmail.com" class="footer-social-link-three"><img src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/69180c1327c43ca58dfce9ae_LOGO-MAIL-p-500.png" loading="lazy" width="20" alt="Email"></a>
+        </div>
+      </div>
+      <div class="footer-divider-two"></div>
+      <div class="footer-bottom">
+        <div class="footer-copyright">&copy; 2026 Serafin Burgulla. All rights reserved.</div>
+        <div class="footer-legal-block">
+          <a href="mailto:serafin.burgulla1789@gmail.com" target="_blank" class="footer-legal-link">Send an Email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
