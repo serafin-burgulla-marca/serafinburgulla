@@ -1,19 +1,11 @@
-# Serafin Burgulla — Portfolio Website
+# Portfolio Website
 
-Personal portfolio for **Serafin Burgulla**, a Political Economy student at Georgetown University. Migrated from Webflow to a self-hosted static site for GitHub Pages.
+Personal portfolio for **Serafin Burgulla**, a Political Economy student at Georgetown University.
 
 ---
 
-## Migration Summary
-
-### What happened
-
-This site was originally built and hosted on **Webflow** at `serafinburgulla.dev`. The goal was to migrate it to a clean, self-contained HTML/CSS site that can be deployed on **GitHub Pages** — no build tools, no CMS dependencies, no JavaScript frameworks.
-
-### Migration process
-
-1. **Extracted the Webflow HTML** — copied the rendered `<head>` and `<body>` from the live Webflow site.
-2. **Stripped Webflow dependencies** — removed all Webflow JS bundles (jQuery, webflow runtime chunks), the Webflow-generated CSS stylesheet, the Village analytics widget, and browser extension scripts.
+1. **Extracted the HTML** — copied the rendered `<head>` and `<body>` from the live site.
+2. **Stripped Webflow dependencies** — removed all Webflow JS bundles (jQuery, runtime chunks), the Webflow-generated CSS stylesheet, the Village analytics widget, and browser extension scripts.
 3. **Rewrote the CSS from scratch** — matched the original Webflow design using the site's actual computed CSS values (section layouts, colors, spacing, responsive breakpoints). Preserved all original Webflow class names so the HTML structure stayed familiar.
 4. **Updated content** — changed the major from Computer Science & Mathematics to Political Economy, rewrote bio sections, reordered page sections to reflect career priorities, and updated the academic coursework.
 5. **Separated concerns** — split into `index.html` (markup) and `style.css` (styling) for easier editing in any IDE.
