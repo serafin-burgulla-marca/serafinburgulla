@@ -1,3 +1,4 @@
+
 # Serafin Burgulla — Portfolio Website
 
 Personal portfolio for **Serafin Burgulla**, a Political Economy student at Georgetown University. Migrated from Webflow to a self-hosted static site for GitHub Pages.
@@ -72,7 +73,7 @@ Navbar and footer links were reordered: About me → Consulting → Academics �
 
 ## Image Migration Guide
 
-All images currently point to Webflow's CDN (`cdn.prod.website-files.com`). They work for now, but will break if the Webflow project is deleted. Download each image and place it in an `images/` folder, then find-and-replace the CDN URLs in `index.html`.
+All 38 images have been downloaded to the local `images/` folder and `index.html` now references them directly — no more dependency on Webflow's CDN (`cdn.prod.website-files.com`).
 
 ### Complete image inventory (38 files)
 
