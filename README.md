@@ -1,53 +1,22 @@
 
-# Serafin Burgulla — Portfolio Website
+# Serafin Burgulla - Portfolio Website
 
-Personal portfolio for **Serafin Burgulla**, a Political Economy student at Georgetown University. Migrated from Webflow to a self-hosted static site for GitHub Pages.
+Personal portfolio for **Serafin Burgulla**, a Political Economy student at Georgetown University. Originally built on Webflow, then migrated to a self-hosted static site for GitHub Pages.
 
----
-
-## Migration Summary
-
-### What happened
-
-This site was originally built and hosted on **Webflow** at `serafinburgulla.dev`. The goal was to migrate it to a clean, self-contained HTML/CSS site that can be deployed on **GitHub Pages** — no build tools, no CMS dependencies, no JavaScript frameworks.
-
-### Migration process
-
-1. **Extracted the Webflow HTML** — copied the rendered `<head>` and `<body>` from the live Webflow site.
-2. **Stripped Webflow dependencies** — removed all Webflow JS bundles (jQuery, webflow runtime chunks), the Webflow-generated CSS stylesheet, the Village analytics widget, and browser extension scripts.
-3. **Rewrote the CSS from scratch** — matched the original Webflow design using the site's actual computed CSS values (section layouts, colors, spacing, responsive breakpoints). Preserved all original Webflow class names so the HTML structure stayed familiar.
-4. **Updated content** — changed the major from Computer Science & Mathematics to Political Economy, rewrote bio sections, reordered page sections to reflect career priorities, and updated the academic coursework.
-5. **Separated concerns** — split into `index.html` (markup) and `style.css` (styling) for easier editing in any IDE.
+Live at: `https://www.serafinburgulla.com`
 
 ---
 
-## What Changed (Original → Current)
+## Overview
 
-### Content changes
+This repository contains a two-page static website with a shared navbar, footer, and stylesheet:
 
-| Section | Original | Current |
+| Page | File | Purpose |
 |---|---|---|
-| **Hero tagline** | "Creating and shipping work that solves real problems. Using data to measure and create impact on people's lives." | "Political Economy at Georgetown University. Former unit in the Bolivian Armed Forces. Indigenous. First-generation, low-income student." |
-| **About Me bio** | "I'm a sophomore at Georgetown University studying Computer Science and Mathematics. I'm driven by my endless curiosity, love for learning, and passion for building. In my free time, I make apps for my friends and family to use." | "I'm a rising junior at Georgetown University. With experience across Bolivia, Peru, Germany, and the United States, I have built organizations, managed financial operations, consulted on workforce development for displaced communities, and created scholarship pipelines for students from backgrounds like mine. I speak Quechua, Spanish, and English." |
-| **Academics — Column 1** | Computer Science (CS I, CS II, Math Methods for CS, Web Dev) | Economics & Mathematics (Microeconomics I, Macroeconomics I, Calculus I, Calculus II, Statistics & Probability) |
-| **Academics — Column 2** | Mathematics (Calc I, Calc II, Combinatorics, Stats, Linear Algebra) | Political Science (International Relations, Elements of Political Theory, History of Latin America, Ethics & Society, Public Speaking) |
-| **Academics — Column 3** | Other Courses (Entrepreneurship, Ethics & Society, Public Speaking, Writing and Culture, How Languages are Learned) | Other Courses (Writing and Culture, How Languages are Learned, Intro to Theology, Entrepreneurship) |
+| Home | `index.html` | Main portfolio: hero, about me, experience, courses/certifications, academics, and featured projects |
+| My Story | `my-story.html` | A three-generation family history page about military service and legacy in Bolivia |
 
-### Layout changes (section order)
-
-| Original order | Current order |
-|---|---|
-| 1. Hero | 1. Hero |
-| 2. About Me | 2. About Me |
-| 3. Featured Projects (I & II) | 3. **Consulting & Data** *(moved up)* |
-| 4. Certifications | 4. Certifications |
-| 5. Consulting & Data | 5. **My Academic Journey** *(moved up)* |
-| 6. My Academic Journey | 6. **Featured Projects (I & II)** *(moved down)* |
-| 7. Footer | 7. Footer |
-
-### Navigation updated to match
-
-Navbar and footer links were reordered: About me → Consulting → Academics → Projects → Certifications.
+Both pages share one stylesheet (`style.css`) and the same navbar/footer markup, so styling changes should be made once in `style.css` and content changes made per page.
 
 ---
 
@@ -55,114 +24,84 @@ Navbar and footer links were reordered: About me → Consulting → Academics �
 
 ```
 /
-├── index.html          # Main page markup
-├── style.css           # All styles (separated from HTML)
-├── images/             # Local image assets (see migration guide below)
-│   ├── nav-bar-logo.png
-│   ├── logo-github.png
-│   ├── logo-linkedin.png
-│   ├── logo-mail.png
-│   ├── hero-portrait.png
-│   ├── about-georgetown.png
-│   ├── ...
-│   └── favicon.png
-└── README.md           # This file
+├── index.html    Main portfolio page
+├── my-story.html My Story page
+├── style.css     All styles, shared by both pages
+├── CNAME         Custom domain config for GitHub Pages (www.serafinburgulla.com)
+├── images/       All local image assets (photos, logos, icons, tech badges)
+└── README.md     This file
 ```
 
 ---
 
-## Image Migration Guide
+## Home Page (`index.html`) Structure
 
-All 38 images have been downloaded to the local `images/` folder and `index.html` now references them directly — no more dependency on Webflow's CDN (`cdn.prod.website-files.com`).
+Sections appear in this order:
 
-### Complete image inventory (38 files)
+1. **Navbar**
+   Logo, links to About me, Consulting, Academics, Projects, Certifications, and My Story, plus external LinkedIn and Resume links. Includes a mobile hamburger menu.
 
-#### Navbar
-| # | Current filename on CDN | What it is | Suggested local name |
-|---|---|---|---|
-| 1 | `NAV-BAR-LOGO.png` | Site logo in navbar | `nav-bar-logo.png` |
+2. **Hero**
+   Name, one-line identity statement ("Political Economy at Georgetown University. Former unit in the Bolivian Armed Forces. Indigenous. First-generation, low-income student."), an "About me" button, GitHub/LinkedIn/Email icons, and a portrait photo.
 
-#### Hero Section
-| # | Current filename on CDN | What it is | Suggested local name |
-|---|---|---|---|
-| 2 | `LOGO-GITHUB.png` | GitHub icon | `logo-github.png` |
-| 3 | `LOGO-LINKEDIN-BLACK.png` | LinkedIn icon | `logo-linkedin.png` |
-| 4 | `LOGO-MAIL.png` | Email icon | `logo-mail.png` |
-| 5 | `OFFICIAL (2).png` | Hero portrait photo | `hero-portrait.png` |
+3. **About Me** (`#about-me`)
+   Three paragraphs of biography covering his background across Bolivia, Peru, Germany, and the United States, the languages he speaks (Quechua, Spanish, English), and the personal and family history that led him to study political economy. Includes a Georgetown University logo/link.
 
-#### About Me Section
-| # | Current filename on CDN | What it is | Suggested local name |
-|---|---|---|---|
-| 6 | `HERO-SECTION-PICTURE.png` | Georgetown / about image | `about-georgetown.png` |
+4. **Experience** (`#consulting`)
+   A section heading followed by four project write-ups, each with a logo/image, role and title, description, tool logos, and action buttons:
+   - **Red UNITAS** - internship in knowledge management for civil society (Bolivia).
+   - **AEBEX** (Asociación de Estudiantes Bolivianos en el Extranjero) - president role in educational access, community building, and fundraising.
+   - **The Grameen Creative Lab** - pro bono consulting on refugee integration strategy across Germany, France, and Luxembourg.
+   - **Hoyalytics Consulting** - capstone data analytics engagement for a regional cafe chain.
 
-#### Featured Projects (card thumbnails)
-| # | Current filename on CDN | What it is | Suggested local name |
-|---|---|---|---|
-| 7 | `8.png` | G.U. Federal Credit Union screenshot | `project-guasfcu.png` |
-| 8 | `10.png` | L'Oréal Routine Builder screenshot | `project-loreal.png` |
-| 9 | `11.png` | NASA Space Explorer screenshot | `project-nasa.png` |
-| 10 | `9.png` | Water Drop Rescue screenshot | `project-waterdrop.png` |
+5. **Courses, Research, and Certifications** (`#courses`)
+   Five certification cards, each with an image, title, issuing organization, description, and topic tags:
+   - Code in Place (Stanford University)
+   - Foundations of Project Management (Google Career Certificates)
+   - Analyst Training Program (Hoyalytics)
+   - Full-Stack Development Training (Hoya Developers)
+   - Education Policy Capstone Project (Youth In Policy Institute)
 
-#### Tech & Tool Logos (shared across cards)
-| # | Current filename on CDN | What it is | Suggested local name |
-|---|---|---|---|
-| 11 | `20.png` | JavaScript logo | `tech-javascript.png` |
-| 12 | `21.png` | HTML logo | `tech-html.png` |
-| 13 | `22.png` | CSS logo | `tech-css.png` |
-| 14 | `23.png` | React logo | `tech-react.png` |
-| 15 | `24.png` | Figma logo | `tech-figma.png` |
-| 16 | `25.png` | Google Analytics logo | `tech-analytics.png` |
-| 17 | `26.png` | OpenAI API logo | `tech-openai.png` |
-| 18 | `27.png` | Cloudflare Workers logo | `tech-cloudflare.png` |
-| 19 | `28.png` | Bootstrap logo | `tech-bootstrap.png` |
-| 20 | `29.png` | PowerPoint logo | `tech-powerpoint.png` |
-| 21 | `30.png` | Inkscape logo | `tech-inkscape.png` |
-| 22 | `31.png` | Python logo | `tech-python.png` |
-| 23 | `32.png` | Google Colab logo | `tech-colab.png` |
-| 24 | `33.png` | Scikit-learn logo | `tech-sklearn.png` |
-| 25 | `34.png` | Pandas logo | `tech-pandas.png` |
-| 26 | `35.png` | Matplotlib logo | `tech-matplotlib.png` |
-| 27 | `38.png` | Git logo | `tech-git.png` |
+6. **My Academic Journey** (`#academics`)
+   Three columns of coursework:
+   - Economics & Mathematics: Microeconomics I, Macroeconomics I, Calculus I, Calculus II, Statistics & Probability
+   - Political Science: International Relations, Elements of Political Theory, History of Latin America, Ethics & Society, Public Speaking
+   - Other Courses: Writing and Culture, How Languages are Learned, Intro to Theology, Entrepreneurship
 
-#### Certifications (card thumbnails)
-| # | Current filename on CDN | What it is | Suggested local name |
-|---|---|---|---|
-| 28 | `LOGO.png` (Code in Place) | Stanford / Code in Place logo | `cert-stanford.png` |
-| 29 | `16.png` | Google PM course image | `cert-google-pm.png` |
-| 30 | `LOGO.png` (Hoyalytics) | Hoyalytics logo | `cert-hoyalytics.png` |
-| 31 | `17.png` | Hoya Developers image | `cert-hoyadev.png` |
-| 32 | `GEORGETOWN (6).png` | Education Policy capstone | `cert-policy-capstone.png` |
+7. **Featured Projects** (`#featured`), split across two sections:
+   - **G.U. Federal Credit Union** - paid redesign of a banking web platform for Georgetown's student-run credit union.
+   - **L'Oreal Routine Builder** - personal AI-powered skincare/haircare product advisor.
+   - **NASA Space Explorer** - personal web app browsing NASA's Astronomy Picture of the Day.
+   - **Water Drop Rescue** - personal browser game demonstrating UI/UX, animation, and DOM manipulation.
 
-#### Consulting Section
-| # | Current filename on CDN | What it is | Suggested local name |
-|---|---|---|---|
-| 33 | `LOGO (2).png` | Hoyalytics consulting logo | `consulting-hoyalytics-logo.png` |
-| 34 | `FINAL (2).png` | Miro logo | `tech-miro.png` |
-| 35 | `FINAL (1).png` | Excel logo | `tech-excel.png` |
-| 36 | `FINAL.png` | Grameen Creative Lab image | `consulting-grameen.png` |
+8. **Footer**
+   Repeats the navbar links, social icons (LinkedIn, GitHub, Email), copyright notice, and a "Send an Email" link.
 
-#### Footer
-Reuses icons #2 (GitHub), #3 (LinkedIn), #4 (Email) — no new files needed.
+---
 
-#### Favicon & Apple Touch Icon
-| # | Current filename on CDN | What it is | Suggested local name |
-|---|---|---|---|
-| 37 | `FAVICON.png` | Browser tab icon | `favicon.png` |
-| 38 | `MAIN LOGO.png` | Apple touch icon | `apple-touch-icon.png` |
+## My Story Page (`my-story.html`) Structure
 
-### How to replace
+1. **Navbar** (same as home page, links point back to `/#section` anchors on the home page)
+2. **Hero** (same content and image as the home page)
+3. **My Story** (`#my-story`) - three generations of military service in the Burgulla family:
+   - **Serafin I** - grandfather, corporal in the Viacha Motorized Regiment, served in the Nancahuazu War, later became a minibus driver.
+   - **Serafin II** - father, served in the Artillery Regiment of the 7th Division of the Bolivian Army, guarded a military factory during a period of terrorism threats.
+   - **Serafin III** - Serafin's own service in the Infantry Regiment of the 7th Division, specialized as a unit marksman, connects his service to his great-grandfather's role in the 1952 Bolivian Revolution.
+4. **Footer** (same as home page)
 
-Once all 38 images are in your `images/` folder, do a global find-and-replace in `index.html`:
+---
 
-1. Replace all Webflow CDN base URLs with your local path:
-   - Find: `https://cdn.prod.website-files.com/69180aff297b32f670982b0d/` followed by the CDN filename
-   - Replace with: `images/` followed by your chosen local filename
+## Images
 
-2. Example — the hero portrait:
-   - **Before:** `src="https://cdn.prod.website-files.com/69180aff297b32f670982b0d/691b028d3216cff5d75b6713_OFFICIAL%20(2)-p-800.png"`
-   - **After:** `src="images/hero-portrait.png"`
+All images are stored locally in `images/` and referenced with relative paths (no external CDN dependency). Categories include:
 
-3. Also update the two references in the `<head>` (favicon and apple-touch-icon).
+- **Branding/nav**: `nav-bar-logo.png`, `favicon.png`, `apple-touch-icon.png`
+- **Icons**: `logo-github.png`, `logo-linkedin.png`, `logo-mail.png`
+- **Portraits**: `hero-portrait.png`, `grandfather.jpg`, `father.jpg`, `son.jpg`
+- **Institution/org logos**: `new-logo-georgetown.png`, `about-georgetown.png`, `logo-red-unitas.png`, `new-logo-aebex.png`, `consulting-grameen.png`, `consulting-hoyalytics-logo.png`
+- **Project thumbnails**: `project-guasfcu.png`, `project-loreal.png`, `project-nasa.png`, `project-waterdrop.png`
+- **Certification thumbnails**: `cert-stanford.png`, `cert-google-pm.png`, `cert-hoyalytics.png`, `cert-hoyadev.png`, `cert-policy-capstone.png`
+- **Tech/tool logos**: `tech-javascript.png`, `tech-html.png`, `tech-css.png`, `tech-react.png`, `tech-figma.png`, `tech-analytics.png`, `tech-openai.png`, `tech-cloudflare.png`, `tech-bootstrap.png`, `tech-powerpoint.png`, `tech-inkscape.png`, `tech-python.png`, `tech-colab.png`, `tech-sklearn.png`, `tech-pandas.png`, `tech-matplotlib.png`, `tech-git.png`, `tech-miro.png`, `tech-excel.png`
 
 ---
 
@@ -171,19 +110,20 @@ Once all 38 images are in your `images/` folder, do a global find-and-replace in
 | Layer | Technology |
 |---|---|
 | Markup | Semantic HTML5 |
-| Styling | Vanilla CSS (no preprocessor) |
-| Fonts | Google Fonts — Open Sans (body) + Inter (headings) |
-| Hosting | GitHub Pages (static) |
-| Build tools | None — no bundler, no framework |
+| Styling | Vanilla CSS (no preprocessor, no framework) |
+| Fonts | Google Fonts, Open Sans (body) plus Inter (headings) |
+| Interactivity | A small inline script toggles the mobile nav menu; no other JavaScript |
+| Hosting | GitHub Pages (static), custom domain via `CNAME` |
+| Build tools | None, no bundler and no framework |
 
 ---
 
 ## Deployment (GitHub Pages)
 
-1. Create a repository (e.g., `fin-burgulla.github.io` for a user site, or any repo name for a project site).
-2. Place `index.html`, `style.css`, and the `images/` folder at the repository root.
-3. Go to **Settings → Pages → Source** and select the `main` branch.
-4. The site will be live at `https://fin-burgulla.github.io` (user site) or `https://fin-burgulla.github.io/repo-name/` (project site).
+1. Push `index.html`, `my-story.html`, `style.css`, `images/`, and `CNAME` to the repository root on the `main` branch.
+2. In the repository, go to **Settings, then Pages, then Source**, and select the `main` branch.
+3. The `CNAME` file points the site at the custom domain `www.serafinburgulla.com`. DNS for that domain must have a CNAME record pointing to the GitHub Pages host.
+4. Without the custom domain, the site would otherwise be served at the repository's default `github.io` URL.
 
 ---
 
@@ -191,7 +131,7 @@ Once all 38 images are in your `images/` folder, do a global find-and-replace in
 
 | Property | Value |
 |---|---|
-| Primary color (buttons, accents) | `#3a73da` / `rgb(58, 115, 218)` |
+| Primary color (buttons, accents) | `#3a73da` |
 | Primary hover | `#2d5cb8` |
 | Dark section background | `rgb(58, 115, 218)` |
 | Body text color | `#333` |
@@ -202,13 +142,29 @@ Once all 38 images are in your `images/` folder, do a global find-and-replace in
 | Container max-width | `940px` |
 | Navbar max-width | `1140px` |
 | Card border-radius | `10px` |
-| Desktop breakpoint | `> 991px` |
-| Tablet breakpoint | `≤ 991px` |
-| Mobile breakpoint | `≤ 767px` |
-| Small mobile breakpoint | `≤ 479px` |
+| Desktop breakpoint | above `991px` |
+| Tablet breakpoint | up to `991px` |
+| Mobile breakpoint | up to `767px` |
+| Small mobile breakpoint | up to `479px` |
+
+---
+
+## History: Migration from Webflow
+
+This site was originally built and hosted on Webflow. It was migrated to a self-contained HTML/CSS site with no build tools, no CMS dependencies, and no JavaScript frameworks, so it could run on GitHub Pages.
+
+Migration steps taken:
+
+1. Extracted the rendered `<head>` and `<body>` markup from the live Webflow site.
+2. Stripped Webflow dependencies: removed the Webflow JS bundles (jQuery, Webflow runtime chunks), the Webflow-generated stylesheet, an analytics widget, and browser extension scripts.
+3. Rewrote the CSS from scratch to match the original design's computed values (layouts, colors, spacing, responsive breakpoints), while keeping the original class names so the HTML structure stayed familiar.
+4. Updated content: changed the listed major from Computer Science and Mathematics to Political Economy, rewrote the bio, reordered sections to reflect career priorities, and updated coursework.
+5. Downloaded all images referenced from Webflow's CDN into the local `images/` folder and repointed every `src` attribute to the local path.
+6. Split the page into `index.html` (markup) and `style.css` (styling) for easier editing outside of Webflow.
+7. Later added the `my-story.html` page and the Experience section (renamed from an earlier "Consulting and Data" section) directly as new HTML, reusing the shared stylesheet and navbar/footer.
 
 ---
 
 ## License
 
-© 2026 Serafin Burgulla. All rights reserved.
+Copyright 2026 Serafin Burgulla. All rights reserved.
