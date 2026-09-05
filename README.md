@@ -9,14 +9,16 @@ Live at: `https://www.serafinburgulla.com`
 
 ## Overview
 
-This repository contains a two-page static website with a shared navbar, footer, and stylesheet:
+This repository contains a three-page static website with a shared navbar, footer, and stylesheet:
 
 | Page | File | Purpose |
 |---|---|---|
 | Home | `index.html` | Main portfolio: hero, about me, experience, courses/certifications, academics, and featured projects |
 | My Story | `my-story.html` | A three-generation family history page about military service and legacy in Bolivia |
+| Articles | `articles.html` | An intro page about Serafin's relationship with reading and writing, plus a card grid linking to individual article pages |
+| The Day I Heard my Hero Cry | `the-day-i-heard-my-hero-cry.html` | First published article, a personal essay about his grandfather |
 
-Both pages share one stylesheet (`style.css`) and the same navbar/footer markup, so styling changes should be made once in `style.css` and content changes made per page.
+All pages share one stylesheet (`style.css`) and the same navbar/footer markup, so styling changes should be made once in `style.css` and content changes made per page.
 
 ---
 
@@ -26,7 +28,8 @@ Both pages share one stylesheet (`style.css`) and the same navbar/footer markup,
 /
 ├── index.html    Main portfolio page
 ├── my-story.html My Story page
-├── style.css     All styles, shared by both pages
+├── articles.html Articles page
+├── style.css     All styles, shared by all pages
 ├── CNAME         Custom domain config for GitHub Pages (www.serafinburgulla.com)
 ├── images/       All local image assets (photos, logos, icons, tech badges)
 └── README.md     This file
@@ -91,6 +94,31 @@ Sections appear in this order:
 
 ---
 
+## Articles Page (`articles.html`) Structure
+
+1. **Navbar** (same as home page, links point back to `/#section` anchors on the home page)
+2. **Hero** - "Articles" as the page heading, next to a two-column block: `articles.png` on the left, and a short personal note on the right about growing up reading novels and black-market books in Bolivia, starting to write in high school, and wanting to keep up with weekly articles and personal notes.
+3. **Article cards** - a responsive 3-per-row grid (reuses the certifications grid layout) of article preview cards, each with an image, an H3 title, and a date/brief:
+   - **The Day I Heard my Hero Cry** (`articles-grandfather.png`, September 3, 2026) - links to `the-day-i-heard-my-hero-cry.html`.
+   - Two placeholder cards reserved for future articles (not yet linked).
+4. **Footer** (same as home page)
+
+---
+
+## Article Subpages
+
+Each published article gets its own page at the repository root (e.g. `the-day-i-heard-my-hero-cry.html`), sharing the navbar/footer with the rest of the site. Structure:
+
+1. **Navbar** (same as home page)
+2. **Article header** - H1 with the article title, followed by the publish date
+3. **Article body** - the full article text as a series of paragraphs
+4. **Footer** (same as home page)
+
+Currently published:
+- **The Day I Heard my Hero Cry** (`the-day-i-heard-my-hero-cry.html`, September 3, 2026) - a personal essay about a phone call with his grandfather, a corporal who served in the Nancahuazu War, and the emotion of hearing him open up for the first time.
+
+---
+
 ## Images
 
 All images are stored locally in `images/` and referenced with relative paths (no external CDN dependency). Categories include:
@@ -98,6 +126,7 @@ All images are stored locally in `images/` and referenced with relative paths (n
 - **Branding/nav**: `nav-bar-logo.png`, `favicon.png`, `apple-touch-icon.png`
 - **Icons**: `logo-github.png`, `logo-linkedin.png`, `logo-mail.png`
 - **Portraits**: `hero-portrait.png`, `grandfather.jpg`, `father.jpg`, `son.jpg`
+- **Articles**: `articles.png`, `articles-grandfather.png`
 - **Institution/org logos**: `new-logo-georgetown.png`, `about-georgetown.png`, `logo-red-unitas.png`, `new-logo-aebex.png`, `consulting-grameen.png`, `consulting-hoyalytics-logo.png`
 - **Project thumbnails**: `project-guasfcu.png`, `project-loreal.png`, `project-nasa.png`, `project-waterdrop.png`
 - **Certification thumbnails**: `cert-stanford.png`, `cert-google-pm.png`, `cert-hoyalytics.png`, `cert-hoyadev.png`, `cert-policy-capstone.png`
@@ -120,7 +149,7 @@ All images are stored locally in `images/` and referenced with relative paths (n
 
 ## Deployment (GitHub Pages)
 
-1. Push `index.html`, `my-story.html`, `style.css`, `images/`, and `CNAME` to the repository root on the `main` branch.
+1. Push `index.html`, `my-story.html`, `articles.html`, article subpages (e.g. `the-day-i-heard-my-hero-cry.html`), `style.css`, `images/`, and `CNAME` to the repository root on the `main` branch.
 2. In the repository, go to **Settings, then Pages, then Source**, and select the `main` branch.
 3. The `CNAME` file points the site at the custom domain `www.serafinburgulla.com`. DNS for that domain must have a CNAME record pointing to the GitHub Pages host.
 4. Without the custom domain, the site would otherwise be served at the repository's default `github.io` URL.

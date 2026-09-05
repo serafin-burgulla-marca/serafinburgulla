@@ -376,6 +376,44 @@ ul { list-style: none; }
 }
 
 /* ══════════════════════════════════════
+   ARTICLE CARDS
+   ══════════════════════════════════════ */
+.article-card {
+  display: block;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 22px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+.article-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 14px;
+}
+.article-card-placeholder {
+  cursor: default;
+}
+.article-card-placeholder:hover {
+  transform: none;
+  box-shadow: none;
+}
+.article-card-placeholder .article-card-image {
+  background-color: #f2f2f2;
+  border: 1px dashed #ddd;
+}
+.article-card-placeholder .subtitle-text,
+.article-card-placeholder .div-section-text {
+  color: #aaa;
+}
+
+/* ══════════════════════════════════════
    FOOTER
    ══════════════════════════════════════ */
 .footer-subscribe {
